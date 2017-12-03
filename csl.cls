@@ -106,7 +106,7 @@
  \newpage
 }
 
-\pagenumbering{roman}
+\pagenumbering{arabic}
 
 \newcommand{\pagetitre}{
   \thispagestyle{empty}
@@ -130,6 +130,7 @@
   \end{center}
   \restoregeometry
   \newpage
+  \setcounter{page}{1}
 }
 
 \renewcommand{\contentsname}{Table des Matières}
@@ -142,8 +143,9 @@
   \begin{metasection*}{\contentsname}
    \@starttoc{toc}
   \end{metasection*}
+  \fancyhf{}
+  \rhead{ii}
   \endgroup
-  \pagenumbering{arabic}
   \setcounter{page}{1}
 }
 
