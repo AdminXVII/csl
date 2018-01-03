@@ -14,7 +14,6 @@
 \RequirePackage[letterpaper,headheight=15pt,top=3.5cm,left=3.5cm,bottom=2.5cm,right=2.5cm]{geometry}
 \RequirePackage[french]{babel}
 \RequirePackage{setspace}
-\RequirePackage{graphicx}
 \RequirePackage{fancyhdr}
 \RequirePackage[explicit,compact]{titlesec}
 \RequirePackage[normalem]{ulem}
@@ -24,13 +23,13 @@
 \RequirePackage{csquotes}
 \RequirePackage{fontspec}
 \RequirePackage{xstring}
-\RequirePackage[hang]{footmisc}
 
 % Fonctions préliminaires
 
 \errorcontextlines 10000
 
 \setmainfont[Ligatures=TeX]{TeX Gyre Termes}
+
 
 \makeatletter
 \onehalfspacing
@@ -70,6 +69,11 @@
 \fancyhf{}
 \rhead{\thepage}
 \setlength\parindent{4em}
+
+% Footnotes indent
+
+\frenchbsetup{FrenchFootnotes=false}
+\renewcommand\@makefntext[1]{\leftskip=2em\hskip-2em\@makefnmark#1}
 
 \makeatletter
 
@@ -168,7 +172,7 @@
   {\normalsize\bfseries}{}{.25em}{\thesection\quad#1}
 
 \titlespacing{\section}{0mm}{4.5ex}{3ex}
- 
+
 \titleformat{\subsection}
   {\normalfont}{}{.25em}{\uline{\thesubsection\ #1}}
 
@@ -217,12 +221,6 @@
 
 \def\changemargin#1{\list{}{\rightmargin#1\leftmargin#1}\item[]}
 \let\endchangemargin=\endlist
-
-\newcommand*{\rom}[1]{\expandafter\@slowromancap\romannumeral #1@}
-
-\newcommand{\refAnn}[1]{
-  \footnote{Voir \textsc{Annexe} \rom{#1} à la page 42}
-}
 
 \renewcommand{\cite}{\footnote}%footcite
 
